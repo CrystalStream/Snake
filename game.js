@@ -111,7 +111,9 @@
 			return this.head.hit(this.head) || this.head.hitBorder();
 		}
 		eat(){			
-			this.head.add();			
+			this.head.add();
+			points ++;
+			document.getElementById('points').innerHTML = points;			
 		}
 
 		// movimientos
@@ -143,7 +145,9 @@
 	const ctx    = canvas.getContext('2d');
 	const velocity = 10;
 	const snake  = new Snake();
-	let foods = [];
+	const points = 0;
+	document.getElementById('points').innerHTML = points;
+	let foods = [];	
 
 	window.addEventListener("keydown", function(evt){
 		if (evt.keyCode > 36 && evt.keyCode < 41) evt.preventDefault()	
@@ -163,7 +167,7 @@
 
 		if(snake.dead()){
 			window.clearInterval(animacion);
-			alert("Game Over");			
+			alert("Game Over \n Puntos: " + points);			
 		}
 	}, 1000 / 10);
 

@@ -171,6 +171,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			key: "eat",
 			value: function eat() {
 				this.head.add();
+				points++;
+				document.getElementById("points").innerHTML = points;
 			}
 		}, {
 			key: "right",
@@ -215,6 +217,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 	var ctx = canvas.getContext("2d");
 	var velocity = 10;
 	var snake = new Snake();
+	var points = 0;
+	document.getElementById("points").innerHTML = points;
 	var foods = [];
 
 	window.addEventListener("keydown", function (evt) {
@@ -235,7 +239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 		if (snake.dead()) {
 			window.clearInterval(animacion);
-			alert("Game Over");
+			alert("Game Over \n Puntos: " + points);
 		}
 	}, 1000 / 10);
 
